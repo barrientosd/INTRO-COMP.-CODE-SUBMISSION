@@ -1,0 +1,224 @@
+# pokemon game
+import random
+pokemon = ["Charmander", "Squirtel", "Pikachu", "Magikarp"]
+enemy = random.choice(pokemon)
+space = "-----------------------------------------------------------------------------------------------------------"
+#-----------------------------------------
+#pokemon specs
+squirtel_life = 40
+charmander_life = 40
+magikarp_life = 40
+pikachu_life = 40
+enemyHP = 40
+
+squirtel_move = ["water gun", "tackle"]
+charmander_move = ["flame", "tackle"]
+magikarp_move = ["Laser Blast"]
+pikachu_move = ["quick attack", "thunder"]
+#-----------------------------------------
+#enemies turn
+def enemy_turn():
+    global squirtel_life
+    global charmander_life
+    global magikarp_life
+    global pikachu_life
+    if enemy == "Charmander":
+        print("Enemy Charmander used " + random.choice(charmander_move))
+        damage = random.randrange(0,9)
+        if pick == "1":
+            charmander_life = charmander_life - damage
+            print("Charmander lost " + str(damage))
+            UI()
+        elif pick == "2":
+            print("Squirtel lost " + str(damage))
+            squirtel_life = squirtel_life - damage
+            UI()
+        elif pick == "3":
+            print("Pikachu lost " + str(damage))
+            pikachu_life = pikachu_life - damage
+            UI()
+        elif pick == "4":
+            print("Magikarp lost " + str(damage))
+            magikarp_life = magikarp_life - damage
+            UI()
+    elif enemy == "Squirtel":
+        print("Enemy Squirtel used " + random.choice(squirtel_move))
+        damage = random.randrange(0,9)
+        if pick == "1":
+            charmander_life = charmander_life - damage
+            print("Charmander lost " + str(damage))
+            UI()
+        elif pick == "2":
+            print("Squirtel lost " + str(damage))
+            squirtel_life = squirtel_life - damage
+            UI()
+        elif pick == "3":
+            print("Pikachu lost " + str(damage))
+            pikachu_life = pikachu_life - damage
+            UI()
+        elif pick == "4":
+            print("Magikarp lost " + str(damage))
+            magikarp_life = magikarp_life - damage
+            UI()
+    elif enemy == "Pikachu":
+        print("Enemy Pikachu used " + random.choice(pikachu_move))
+        damage = random.randrange(0,9)
+        if pick == "1":
+            charmander_life = charmander_life - damage
+            print("Charmander lost " + str(damage))
+            UI()
+        elif pick == "2":
+            print("Squirtel lost " + str(damage))
+            squirtel_life = squirtel_life - damage
+            UI()
+        elif pick == "3":
+            print("Pikachu lost " + str(damage))
+            pikachu_life = pikachu_life - damage
+            UI()
+        elif pick == "4":
+            print("Magikarp lost " + str(damage))
+            magikarp_life = magikarp_life - damage
+            UI()
+    elif enemy == "Magikarp":
+        print("Enemy Magikarp used " + random.choice(magikarp_move))
+        damage = random.randrange(0,20)
+        if pick == "1":
+            charmander_life = charmander_life - damage
+            print("Charmander lost " + str(damage))
+            UI()
+        elif pick == "2":
+            print("Squirtel lost " + str(damage))
+            squirtel_life = squirtel_life - damage
+            UI()
+        elif pick == "3":
+            print("Pikachu lost " + str(damage))
+            pikachu_life = pikachu_life - damage
+            UI()
+        elif pick == "4":
+            print("Magikarp lost " + str(damage))
+            magikarp_life = magikarp_life - damage
+            UI()
+
+#UI
+def UI():
+    global enemyHP
+    #Win conditions
+    if enemyHP < 1:
+        print("YOU WIN! ENEMY FAINTED")
+        return
+    elif squirtel_life < 1:
+        print("YOU LOSE! YOUR POKEMON FAINTED!")
+        return
+    elif charmander_life < 1:
+        print("YOU LOSE! YOUR POKEMON FAINTED!")
+        return
+    elif pikachu_life < 1:
+        print("YOU LOSE! YOUR POKEMON FAINTED!")
+        return
+    elif magikarp_life < 1:
+        print("YOU LOSE! YOUR POKEMON FAINTED!")
+        return
+    print(space)
+    if pick == "1":
+        print("Charmander HP ", charmander_life)
+        print("1.Flame     2.Tackle")
+        battle_choice = input("Choose Attack: ")
+        if battle_choice == "1":
+            damage = random.randrange(0,9)
+            enemyHP = enemyHP - int(damage)
+            print("Charmander did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+        elif battle_choice == "2":
+            damage = random.randrange(0,9)
+            enemyHP = enemyHP - int(damage)
+            print("Charmander did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+    elif pick == "2":
+        print("Squirtel HP ", squirtel_life)
+        print("1.Water gun     2.Tackle")
+        battle_choice = input("Choose Attack: ")
+        if battle_choice == "1":
+            damage = random.randrange(0,9)
+            enemyHP = enemyHP - int(damage)
+            print("Squirtel did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+        elif battle_choice == "4":
+            damage = random.randrange(0,9)
+            enemyHP = enemyHP - int(damage)
+            print("Squirtel did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+    elif pick == "3":
+        print("Pikachu HP ", pikachu_life)
+        print("1.Quick Attack     2.Thunder")
+        battle_choice = input("Choose Attack: ")
+        if battle_choice == "1":
+            damage = random.randrange(0,9)
+            enemyHP = enemyHP - int(damage)
+            print("Pikachu did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+        elif battle_choice == "2":
+            damage = random.randrange(0,9)
+            enemyHP = enemyHP - int(damage)
+            print("Pikachu did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+    elif pick == "4":
+        print("Magikarp HP ", magikarp_life)
+        print("1.FUCK YU")
+        battle_choice = input("Choose Attack: ")
+        if battle_choice == "1":
+            damage = random.randrange(10,20)
+            enemyHP = enemyHP - int(damage)
+            print("Magikarp did " + str(damage) + " damage")
+            print("Enemy HP ", enemyHP)
+            enemy_turn()
+    
+
+#battle
+def battle():
+    if enemy == "Charmander":
+        print("Your enemy chose", enemy)
+        UI()
+    elif enemy == "Squirtel":
+        print("Your enemy chose", enemy)
+        UI()
+    elif enemy == "Pikachu":
+        print("Your enemy chose", enemy)
+        UI()
+    elif enemy == "Magikarp":
+        print("Your enemy chose", enemy)
+        UI()
+    
+
+start = input("Do you want to play?: ")
+while start not in ("no", "yes", "No", "Yes"):
+    print("invalid answer")
+    start = input("Do you want to play?: ")
+    
+if start == "yes":
+    print("1. Charmander     2. Squirtel     3. Pikachu     4. Magikarp")
+    pick = input("pick your pokemon: ")
+    if pick == "1":
+        print("lets begin")
+        print(space)
+        battle()
+    if pick == "2":
+        print("lets begin")
+        print(space)
+        battle()
+    if pick == "3":
+        print("lets begin")
+        print(space)
+        battle()
+    if pick == "4":
+        print("lets begin")
+        print(space)
+        battle()
+
+
+    
